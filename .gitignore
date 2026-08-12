@@ -1,0 +1,19 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Khoá API — không bao giờ commit
+finlens.toml
+.env
+
+# Tài liệu thiết kế nội bộ, không phát hành
+ROADMAP.md
+
+# Kết quả sinh ra khi chạy notebook
+output/
+data/*.parquet
+data/*.csv
+data/*.xlsx

@@ -1,0 +1,14 @@
+# Lõi — đủ để chạy mọi notebook
+# 1.4.0 thêm client.funds.*, client.bonds.*, financials.notes() và 5 cột chứng quyền
+finlens>=1.4.0
+pandas>=3.0
+plotly>=6.0
+
+# Chạy notebook
+ipykernel
+jupyter
+nbformat
+
+# 41_intraday_order_flow ghi báo cáo ra Excel, 14_dashboard ghi ra HTML
+# (HTML dùng plotly nên không cần gì thêm; Excel cần openpyxl)
+openpyxl
