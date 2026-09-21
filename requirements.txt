@@ -12,3 +12,7 @@ nbformat
 # 41_intraday_order_flow ghi báo cáo ra Excel, 14_dashboard ghi ra HTML
 # (HTML dùng plotly nên không cần gì thêm; Excel cần openpyxl)
 openpyxl
+
+# 71_luan_van_no_xau_va_hieu_qua_ngan_hang cần kinh tế lượng dữ liệu bảng
+# (FEM/REM/Hausman); linearmodels kéo theo statsmodels và scipy
+linearmodels>=6.0
