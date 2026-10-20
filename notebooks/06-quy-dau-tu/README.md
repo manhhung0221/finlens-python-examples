@@ -15,6 +15,19 @@ client.funds.holders("HPG")   # 80 quỹ đang nắm HPG, kèm tỷ trọng và 
 |---|---|
 | [`61_quy_dau_tu.ipynb`](61_quy_dau_tu.ipynb) | 188 quỹ · NAV và hiệu suất so với VNINDEX · danh mục nắm giữ · **tra ngược `holders()`** · theo dấu quỹ gom/xả · bảng dòng tiền tổ chức |
 
+## Khoá API — khuyến nghị dùng extension FinLens cho VS Code
+
+Cách tiện nhất để có khoá API là cài extension
+**[FinLens cho VS Code](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)**: đăng nhập, tạo khoá và ghi khoá cho notebook
+ngay trong editor, không phải sao chép khoá bằng tay. Hướng dẫn sử dụng:
+**[docs.finlens.vn/vscode](https://docs.finlens.vn/vscode)**.
+
+`Ctrl+Shift+P` → **`FinLens: Đăng nhập`** → **`FinLens: Tạo API key`** →
+**`FinLens: Ghi API key ra file cấu hình`**. Bước cuối là **bắt buộc**: kernel
+Jupyter không đọc được kho bí mật của VS Code, nên khoá phải được ghi ra file cấu
+hình thì `finlens.client()` mới thấy. Các cách khác (biến môi trường, file cấu hình
+tự tạo, truyền thẳng trong code) xem ở [README gốc](../../README.md#lấy-api-key--bốn-cách).
+
 ## Năm phương thức
 
 | Gọi | Trả về |

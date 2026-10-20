@@ -4,6 +4,19 @@ Chuỗi bài dạy **pandas 3.0** qua dữ liệu chứng khoán Việt Nam th�
 `pd.DataFrame({"a": [1, 2, 3]})` — mọi ví dụ chạy trên frame lấy từ `finlens`,
 nên bạn học pandas và học dữ liệu thị trường cùng lúc.
 
+## Khoá API — khuyến nghị dùng extension FinLens cho VS Code
+
+Cách tiện nhất để có khoá API là cài extension
+**[FinLens cho VS Code](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)**: đăng nhập, tạo khoá và ghi khoá cho notebook
+ngay trong editor, không phải sao chép khoá bằng tay. Hướng dẫn sử dụng:
+**[docs.finlens.vn/vscode](https://docs.finlens.vn/vscode)**.
+
+`Ctrl+Shift+P` → **`FinLens: Đăng nhập`** → **`FinLens: Tạo API key`** →
+**`FinLens: Ghi API key ra file cấu hình`**. Bước cuối là **bắt buộc**: kernel
+Jupyter không đọc được kho bí mật của VS Code, nên khoá phải được ghi ra file cấu
+hình thì `finlens.client()` mới thấy. Các cách khác (biến môi trường, file cấu hình
+tự tạo, truyền thẳng trong code) xem ở [README gốc](../../README.md#lấy-api-key--bốn-cách).
+
 ## Vì sao chuỗi này tồn tại
 
 pandas 3.0 **xoá thật** nhiều thứ, và mã pandas 2.x chạy vào là gãy — hoặc tệ

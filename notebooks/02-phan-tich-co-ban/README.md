@@ -11,6 +11,19 @@ theo bốn loại hình doanh nghiệp: `CT` phi tài chính (61), `NH` ngân h�
 | [`23_screener_dinh_gia.ipynb`](23_screener_dinh_gia.ipynb) | **Sản phẩm 2** — chấm điểm toàn sàn HOSE, z-score trong ngành, xuất Excel |
 | [`24_deep_dive_ngan_hang.ipynb`](24_deep_dive_ngan_hang.ipynb) | NIM = YOEA − COF · nợ xấu và nợ nhóm 2 · bao phủ nợ xấu · CIR · LDR · bảng điểm 28 ngân hàng |
 
+## Khoá API — khuyến nghị dùng extension FinLens cho VS Code
+
+Cách tiện nhất để có khoá API là cài extension
+**[FinLens cho VS Code](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)**: đăng nhập, tạo khoá và ghi khoá cho notebook
+ngay trong editor, không phải sao chép khoá bằng tay. Hướng dẫn sử dụng:
+**[docs.finlens.vn/vscode](https://docs.finlens.vn/vscode)**.
+
+`Ctrl+Shift+P` → **`FinLens: Đăng nhập`** → **`FinLens: Tạo API key`** →
+**`FinLens: Ghi API key ra file cấu hình`**. Bước cuối là **bắt buộc**: kernel
+Jupyter không đọc được kho bí mật của VS Code, nên khoá phải được ghi ra file cấu
+hình thì `finlens.client()` mới thấy. Các cách khác (biến môi trường, file cấu hình
+tự tạo, truyền thẳng trong code) xem ở [README gốc](../../README.md#lấy-api-key--bốn-cách).
+
 ## Cạm bẫy lớn nhất của Track này
 
 ⚠️ **Kỳ của chỉ số tài chính khác nhau theo loại hình doanh nghiệp.**

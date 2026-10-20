@@ -1,11 +1,12 @@
-# finlens examples — 26 notebook phân tích dữ liệu chứng khoán Việt Nam bằng Python
+# finlens examples — 35 notebook phân tích dữ liệu chứng khoán Việt Nam bằng Python
 
 **Bộ ví dụ thực chiến cho thư viện Python [`finlens`](https://pypi.org/project/finlens/)** —
 dữ liệu chứng khoán Việt Nam (HOSE, HNX, UPCOM) trả về thẳng dưới dạng
-`pandas.DataFrame`. 26 Jupyter notebook đi từ lời gọi API đầu tiên tới các sản
+`pandas.DataFrame`. 35 Jupyter notebook đi từ lời gọi API đầu tiên tới các sản
 phẩm dùng được hằng ngày: **dashboard thị trường**, **screener định giá**,
-**screener tín hiệu kỹ thuật**, **dashboard vĩ mô**, và **bảng theo dấu dòng
-tiền quỹ đầu tư** — cộng một chuỗi bài dạy **pandas 3.0** qua chính dữ liệu đó.
+**screener tín hiệu kỹ thuật**, **dashboard vĩ mô**, **bảng theo dấu dòng
+tiền quỹ đầu tư** và **bảng lệnh cuối ngày** — cộng một chuỗi bài dạy
+**pandas 3.0** và một chuỗi bài **backtest bằng backtrader** qua chính dữ liệu đó.
 
 Mọi notebook chạy trên **dữ liệu thật**, đã thực thi từ đầu tới cuối, không có số
 bịa và không có file `.csv` mẫu.
@@ -16,11 +17,12 @@ bịa và không có file `.csv` mẫu.
 [![Plotly](https://img.shields.io/badge/Plotly-6.0%2B-3f4f75)](https://plotly.com/python/)
 [![VS Code Extension](https://img.shields.io/badge/VS%20Code-FinLens-007ACC)](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)
 
-> *26 hands-on Jupyter notebooks for the `finlens` Python library — Vietnam stock
+> *35 hands-on Jupyter notebooks for the `finlens` Python library — Vietnam stock
 > market data (HOSE, HNX, UPCOM) as pandas DataFrames. Covers EOD and intraday
 > prices, tick data, foreign investor flows, financial statements, 181
 > pre-computed financial ratios, 135 TA-Lib indicators, derivatives, covered
-> warrants, and 3,348 macroeconomic series. All notebooks run on live data.*
+> warrants, 3,348 macroeconomic series, and event-driven backtesting with
+> backtrader. All notebooks run on live data.*
 
 ---
 
@@ -29,7 +31,7 @@ bịa và không có file `.csv` mẫu.
 - [finlens là gì](#finlens-là-gì)
 - [Chạy thử trong ba phút](#chạy-thử-trong-ba-phút)
 - [Lấy API key — bốn cách](#lấy-api-key--bốn-cách)
-- [Bản đồ 26 notebook](#bản-đồ-26-notebook)
+- [Bản đồ 35 notebook](#bản-đồ-35-notebook)
 - [Năm điều sẽ làm bạn mất tiền nếu bỏ qua](#năm-điều-sẽ-làm-bạn-mất-tiền-nếu-bỏ-qua)
 - [Cấu trúc dự án](#cấu-trúc-dự-án)
 - [Câu hỏi thường gặp](#câu-hỏi-thường-gặp)
@@ -69,7 +71,9 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Đặt API key (xem [bốn cách bên dưới](#lấy-api-key--bốn-cách)), rồi mở notebook:
+Đặt API key — khuyến nghị dùng **[extension FinLens cho VS Code](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)**
+([hướng dẫn sử dụng](https://docs.finlens.vn/vscode)); xem [bốn cách bên dưới](#lấy-api-key--bốn-cách) —
+rồi mở notebook:
 
 ```bash
 jupyter lab notebooks/
@@ -93,7 +97,8 @@ Khoá API FinLens có dạng `flk_...`. Thư viện tìm khoá theo thứ tự �
 [![Cài từ Marketplace](https://img.shields.io/badge/Marketplace-FinLens.finlens-007ACC?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)
 
 Extension **[FinLens for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)**
-cấp và quản lý khoá cho bạn, không cần vào web.
+cấp và quản lý khoá cho bạn, không cần vào web. Hướng dẫn sử dụng đầy đủ:
+**[docs.finlens.vn/vscode](https://docs.finlens.vn/vscode)**.
 
 1. Cài extension `FinLens.finlens` từ Marketplace.
 2. Mở Command Palette (`Ctrl+Shift+P`) → **`FinLens: Đăng nhập`** — bằng email
@@ -131,7 +136,7 @@ Hai lệnh hữu ích khác:
 
 Extension còn cho **bảng giá realtime**, **chèn code Python theo dataset**,
 **xem trước dữ liệu ngay trong editor** và **biểu đồ kỹ thuật** — nhưng để chạy
-26 notebook này thì bốn bước trên là đủ.
+35 notebook này thì bốn bước trên là đủ.
 
 ### Cách 2 — Biến môi trường
 
@@ -167,9 +172,9 @@ Chưa có tài khoản? Đăng ký tại **[finlens.vn](https://finlens.vn)**.
 
 ---
 
-## Bản đồ 26 notebook
+## Bản đồ 35 notebook
 
-Notebook chia thành **7 thư mục theo chủ đề**. Mỗi thư mục có README riêng.
+Notebook chia thành **8 thư mục theo chủ đề**. Mỗi thư mục có README riêng.
 
 ### [Track 0 — Bắt đầu](notebooks/00-bat-dau/)
 
@@ -241,6 +246,24 @@ phiếu ↔ tổ chức mà bốn nhóm dữ liệu cũ không có.
 |---|---|
 | [`61_quy_dau_tu`](notebooks/06-quy-dau-tu/61_quy_dau_tu.ipynb) | NAV và hiệu suất so với VNINDEX · danh mục nắm giữ · **`holders()` — mã này quỹ nào nắm** · theo dấu quỹ gom/xả |
 
+### [Track 8 — Backtest hướng sự kiện với backtrader](notebooks/08-backtest-backtrader/)
+
+Ghép finlens với [backtrader](https://www.backtrader.com/) từ cơ bản tới nâng cao:
+broker giả lập khớp lệnh từng thanh, với **luật chơi Việt Nam** — thuế bán, lô
+100, trần/sàn, T+2, ký quỹ phái sinh. Cần `pip install backtrader`.
+
+| Notebook | Nội dung |
+|---|---|
+| [`81_tu_finlens_toi_cerebro`](notebooks/08-backtest-backtrader/81_tu_finlens_toi_cerebro.ipynb) | Frame finlens → feed backtrader · chiến lược đầu tiên · ⚠️ **bẫy kVND** · phiên dở dang |
+| [`82_giai_phau_strategy`](notebooks/08-backtest-backtrader/82_giai_phau_strategy.ipynb) | `lines` · `next`/`prenext` · bốn loại lệnh · ⚠️ **cheat-on-close** |
+| [`83_luat_choi_viet_nam`](notebooks/08-backtest-backtrader/83_luat_choi_viet_nam.ipynb) | Phí + thuế bán · lô 100 · ⚠️ **trần/sàn phải tính trên giá thô** · T+2 |
+| [`84_analyzer_va_bao_cao`](notebooks/08-backtest-backtrader/84_analyzer_va_bao_cao.ipynb) | Analyzer → plotly · benchmark VNINDEX · lãi suất phi rủi ro từ `client.macro` |
+| [`85_chi_bao_va_du_lieu_ngoai_gia`](notebooks/08-backtest-backtrader/85_chi_bao_va_du_lieu_ngoai_gia.ipynb) | Line phụ · khối ngoại · P/E, ROE · ⚠️ **độ trễ công bố BCTC** |
+| [`86_danh_muc_nhieu_ma`](notebooks/08-backtest-backtrader/86_danh_muc_nhieu_ma.ipynb) | Danh mục nhiều mã · dựng lại `34` bằng backtrader và truy từng nguồn lệch |
+| [`87_toi_uu_va_walk_forward`](notebooks/08-backtest-backtrader/87_toi_uu_va_walk_forward.ipynb) | `optstrategy` · walk-forward · giá của overfitting · đa tiến trình trên Windows |
+| [`88_phai_sinh_va_intraday`](notebooks/08-backtest-backtrader/88_phai_sinh_va_intraday.ipynb) | VN30F1M long/short · ký quỹ · dữ liệu phút · ⚠️ **múi giờ** · nhảy giá ngày đáo hạn |
+| [`89_bang_lenh_cuoi_ngay`](notebooks/08-backtest-backtrader/89_bang_lenh_cuoi_ngay.ipynb) | **Sản phẩm 6** — danh sách lệnh cho phiên mai · nhật ký paper-trading |
+
 Mỗi thư mục có `README.md` riêng liệt kê notebook và các cạm bẫy của nhóm đó.
 
 ---
@@ -290,10 +313,13 @@ Mua ròng của nhóm này chính là bán ròng của nhóm kia, nên cộng ch
 
 ### 5. Backtest không đo giả định của chính nó
 
-Cùng một chiến lược đà tăng cho **CAGR −5,70%** khi đo đúng và **+3,04%** khi mắc
-ba lỗi phổ biến: nhìn trước ở bộ lọc vũ trụ, khớp lệnh cùng phiên tín hiệu, và bỏ
-qua chi phí giao dịch. Khoảng cách 8,7 điểm phần trăm đó là **phương pháp**,
-không phải chiến lược.
+Cùng một chiến lược đà tăng cho **CAGR −3,93%** khi đo đúng và **+1,77%** khi mắc
+ba lỗi phổ biến: nhìn trước ở bộ lọc vũ trụ, khớp lệnh ở giá đóng cửa phiên tín
+hiệu, và bỏ qua chi phí giao dịch. Khoảng cách 5,70 điểm phần trăm đó là
+**phương pháp**, không phải chiến lược. Chính bản "đúng" trước đây cũng mắc bốn
+lỗi, chỉ lộ ra khi dựng lại bằng backtrader — lớn nhất là trọng số cố định 1/N
+mỗi phiên (kéo CAGR xuống 1,06 điểm %) và mua ở giá đóng cửa thay vì giá mở cửa
+phiên sau (đẩy lên 0,65).
 → [`34_backtest_chien_luoc`](notebooks/03-phan-tich-ky-thuat/34_backtest_chien_luoc.ipynb)
 
 ---
@@ -305,13 +331,18 @@ finlens_examples/            hàm dùng chung, không chứa tri thức nghiệp
 ├── charts.py                theme Plotly + 6 hàm vẽ, bảng màu đã qua validator
 ├── dinh_dang.py             đọc df.attrs → nhãn đơn vị; VND → tỷ đồng
 ├── phien.py                 mốc thời gian lấy từ đồng hồ server, không từ máy bạn
-└── vu_tru.py                dựng universe mã + lọc thanh khoản
+├── vu_tru.py                dựng universe mã + lọc thanh khoản
+└── bt_vn.py                 cầu nối finlens → backtrader + luật chơi Việt Nam (Track 8)
 notebooks/
 ├── 00-bat-dau/              1 notebook
 ├── 01-thi-truong-va-dong-tien/   4 notebook
 ├── 02-phan-tich-co-ban/          4 notebook
 ├── 03-phan-tich-ky-thuat/        4 notebook
-└── 04-intraday-phai-sinh-vi-mo/  4 notebook
+├── 04-intraday-phai-sinh-vi-mo/  4 notebook
+├── 05-pandas-3/                  8 notebook
+├── 06-quy-dau-tu/                1 notebook
+├── 07-nghien-cuu-hoc-thuat/      1 notebook
+└── 08-backtest-backtrader/       9 notebook
 output/                      file notebook sinh ra (đã .gitignore)
 ```
 
@@ -388,9 +419,19 @@ kỳ báo cáo hỏi từ dữ liệu. Notebook không chết vào tháng sau.
 
 **Không, và đó là chủ ý.** Chiến lược đà tăng ở
 [`34_backtest_chien_luoc`](notebooks/03-phan-tich-ky-thuat/34_backtest_chien_luoc.ipynb)
-cho CAGR −5,70% khi đo đúng. Notebook giữ nguyên kết quả thua để chỉ ra rằng ba
-lỗi phương pháp phổ biến biến chính chiến lược đó thành +3,04%. Bộ khung đo lường
+cho CAGR −3,93% khi đo đúng. Notebook giữ nguyên kết quả thua để chỉ ra rằng ba
+lỗi phương pháp phổ biến biến chính chiến lược đó thành +1,77%. Bộ khung đo lường
 mới là thứ đáng mang đi.
+
+### Backtest vectorised (Track 3) hay backtrader (Track 8)?
+
+Vectorised để **quét nhanh ý tưởng** trên toàn sàn; backtrader để **kiểm luật
+chơi thật** — thuế bán, lô 100, trần/sàn, T+2, lệnh giới hạn, ký quỹ phái sinh.
+[`86_danh_muc_nhieu_ma`](notebooks/08-backtest-backtrader/86_danh_muc_nhieu_ma.ipynb)
+dựng lại chiến lược của `34` bằng backtrader: cùng giả định thì hai bộ máy chỉ
+lệch 0,02 điểm % CAGR; thêm luật chơi Việt Nam thì lệch −0,72 điểm %, và
+notebook truy ra từng phần của khoảng lệch đó. Chính việc đối chiếu này đã lộ ra
+bốn lỗi phương pháp trong bản vectorised cũ của `34`, nay đã sửa.
 
 ### Repo này dùng thư viện vẽ biểu đồ nào?
 
@@ -423,6 +464,7 @@ của `meta.warrants()`.
 | `finlens` | 1.4.0 |
 | `pandas` | 3.0.5 |
 | `plotly` | 6.x |
+| `backtrader` | 1.9.78.123 (Track 8) |
 | Python | 3.12 (thư viện yêu cầu 3.11+) |
 | Extension VS Code | `FinLens.finlens` 0.2.7 |
 
@@ -436,6 +478,7 @@ Toàn bộ notebook đã chạy sạch từ đầu tới cuối bằng
 - **Thư viện Python**: [pypi.org/project/finlens](https://pypi.org/project/finlens/)
 - **Tài liệu**: [docs.finlens.vn/python-sdk](https://docs.finlens.vn/python-sdk)
 - **Extension VS Code**: [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)
+- **Hướng dẫn dùng extension**: [docs.finlens.vn/vscode](https://docs.finlens.vn/vscode)
 - **Trang chủ**: [finlens.vn](https://finlens.vn)
 
 ---

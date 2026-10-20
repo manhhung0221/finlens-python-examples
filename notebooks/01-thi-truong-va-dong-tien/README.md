@@ -11,6 +11,19 @@ trường một trang xuất ra HTML**.
 | [`13_dong_tien_nha_dau_tu.ipynb`](13_dong_tien_nha_dau_tu.ipynb) | Khối ngoại · tự doanh · bốn nhóm chi tiết · dòng tiền theo ngành · tương quan với giá |
 | [`14_dashboard_hang_ngay.ipynb`](14_dashboard_hang_ngay.ipynb) | **Sản phẩm 1** — báo cáo thị trường một trang, 8 lời gọi API, xuất HTML tự chứa |
 
+## Khoá API — khuyến nghị dùng extension FinLens cho VS Code
+
+Cách tiện nhất để có khoá API là cài extension
+**[FinLens cho VS Code](https://marketplace.visualstudio.com/items?itemName=FinLens.finlens)**: đăng nhập, tạo khoá và ghi khoá cho notebook
+ngay trong editor, không phải sao chép khoá bằng tay. Hướng dẫn sử dụng:
+**[docs.finlens.vn/vscode](https://docs.finlens.vn/vscode)**.
+
+`Ctrl+Shift+P` → **`FinLens: Đăng nhập`** → **`FinLens: Tạo API key`** →
+**`FinLens: Ghi API key ra file cấu hình`**. Bước cuối là **bắt buộc**: kernel
+Jupyter không đọc được kho bí mật của VS Code, nên khoá phải được ghi ra file cấu
+hình thì `finlens.client()` mới thấy. Các cách khác (biến môi trường, file cấu hình
+tự tạo, truyền thẳng trong code) xem ở [README gốc](../../README.md#lấy-api-key--bốn-cách).
+
 ## Cạm bẫy được chứng minh bằng số
 
 - **Giá điều chỉnh vs giá thô**: đo trên VNM hai năm, lợi suất lệch **14,27 điểm

@@ -16,3 +16,9 @@ openpyxl
 # 71_luan_van_no_xau_va_hieu_qua_ngan_hang cần kinh tế lượng dữ liệu bảng
 # (FEM/REM/Hausman); linearmodels kéo theo statsmodels và scipy
 linearmodels>=6.0
+
+# Track 8 (81_ … 89_) backtest hướng sự kiện bằng backtrader.
+# 1.9.78.123 là bản cuối trên PyPI và dự án không còn phát triển; đã chạy thử
+# với Python 3.12 + pandas 3.0 + numpy 2.5. Biểu đồ vẫn vẽ bằng plotly như mọi
+# track khác, nên không cần matplotlib cho cerebro.plot().
+backtrader>=1.9.78.123
